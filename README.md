@@ -41,19 +41,19 @@ Features:
 
 ### Using Antigen
 
-```bash
-antigen bundle raindeer44/vero
-```
+  ```bash
+  antigen bundle raindeer44/vero
+  ```
 
-<!--
 ### For Zgen users
 
-If you're using [zgen](https://github.com/tarjoilija/zgen), add the following line to your **~/.zshrc** where add your other ZSH plugins **after** the line `zgen oh-my-zsh`.
+If you're using [zgen](https://github.com/tarjoilija/zgen), add the following line to your **~/.zshrc** near your other ZSH plugins **after** the line `zgen oh-my-zsh`.
 
-```bash
-zgen load raindeer44/vero vero
-```
+  ```bash
+  zgen load raindeer44/vero vero master
+  ```
 
+<!--
 ### For Zplug users
 
 If you're using [zplug](https://github.com/zplug/zplug), add the following line
