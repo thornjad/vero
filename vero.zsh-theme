@@ -83,7 +83,7 @@ function ssh_connection() {
   fi
 }
 
-_PATH="%{$fg_bold[white]%}%~%{$reset_color%}"
+_PATH="%{$fg_bold[white]%}%~%{$reset_color%} "
 
 if [[ $EUID -eq 0 ]]; then
   _USERNAME="%{$fg_bold[red]%}%n"
@@ -113,7 +113,7 @@ get_space () {
 
 vero_precmd () {
   _TIME="%*"
-  _NVMGIT=" $(nvm_prompt_info)$(vero_git_prompt)"
+  _NVMGIT="$(nvm_prompt_info) $(vero_git_prompt)"
   _SSH="$(ssh_connection) "
   _PROMPT="$_TIME$_SSH$_USERNAME:$_PATH$_NVMGIT"
   print
