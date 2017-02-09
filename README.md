@@ -28,9 +28,9 @@ Features:
 1. Download and install the theme:
 
   ```bash
-  wget https://github.com/Raindeer44/vero/archive/v0.9.2.tar.gz
-  tar -xzvf v0.9.2.tar.gz
-  cd vero-0.9.2
+  wget https://github.com/Raindeer44/vero/archive/v0.9.3.tar.gz
+  tar -xzvf v0.9.3.tar.gz
+  cd vero-0.9.3
   make
   ```
 
