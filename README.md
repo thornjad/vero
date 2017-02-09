@@ -2,7 +2,7 @@
 
 Vero is an [Oh My ZSH shell](https://github.com/robbyrussell/oh-my-zsh) theme, created for simplicity, neatness and availability of information.
 
-Current features:
+Features:
 
 - Current Node.js version
 - Git branch and status
@@ -36,9 +36,9 @@ Current features:
 2. Set vero as your ZSH theme. In your **~/.zshrc**:
 
   ```bash
-  ZSH_THEME="bullet-train"
+  ZSH_THEME="vero"
   ```
-  
+
 <!--
 ### For antigen users
 
