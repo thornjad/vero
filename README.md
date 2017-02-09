@@ -39,16 +39,13 @@ Features:
   ZSH_THEME="vero"
   ```
 
-<!--
-### For antigen users
-
-Add the following snippet to your **~/.zshrc** somewhere after the line
-`antigen use oh-my-zsh`.
+### Using Antigen
 
 ```bash
-antigen theme https://github.com/raindeer44/vero vero
+antigen bundle raindeer44/vero
 ```
 
+<!--
 ### For Zgen users
 
 If you're using [zgen](https://github.com/tarjoilija/zgen), add the following line to your **~/.zshrc** where add your other ZSH plugins **after** the line `zgen oh-my-zsh`.
