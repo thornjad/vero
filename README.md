@@ -46,7 +46,7 @@ Features:
   antigen bundle raindeer44/vero
   ```
 
-### For Zgen users
+### Using ZGen
 
 If you're using [zgen](https://github.com/tarjoilija/zgen), add the following line to your **~/.zshrc** near your other ZSH plugins **after** the line `zgen oh-my-zsh`.
 
@@ -54,7 +54,7 @@ If you're using [zgen](https://github.com/tarjoilija/zgen), add the following li
   zgen load raindeer44/vero vero master
   ```
 
-### For Zplug users
+### Using ZPlug
 
 If you're using [zplug](https://github.com/zplug/zplug), add the following line
 to your **~/.zshrc** where you're adding your other zsh plugins **after** the
