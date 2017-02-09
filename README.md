@@ -38,6 +38,7 @@ Current features:
   ```bash
   ZSH_THEME="bullet-train"
   ```
+  
 <!--
 ### For antigen users
 
