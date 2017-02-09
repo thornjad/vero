@@ -53,15 +53,13 @@ If you're using [zgen](https://github.com/tarjoilija/zgen), add the following li
   zgen load raindeer44/vero vero master
   ```
 
-<!--
 ### For Zplug users
 
 If you're using [zplug](https://github.com/zplug/zplug), add the following line
 to your **~/.zshrc** where you're adding your other zsh plugins **after** the
 line `zplug "robbyrussell/oh-my-zsh"`.
 
-```bash
-setopt prompt_subst # Make sure propt is able to be generated properly.
-zplug "adambiggs/zsh-theme", use:adambiggs.zsh-theme
-```
--->
+  ```bash
+  setopt prompt_subst
+  zplug "raindeer44/vero", as:theme, use:vero.zsh-theme
+  ```
