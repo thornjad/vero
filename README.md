@@ -7,13 +7,14 @@ Features:
 - Current Node.js version
 - Git branch and status
 - Timestamp
+- SSH detection
 - Current user
 - Current working directory
 - A fancy lambda symbol
 
 ## Preview
 
-
+![Preview of Vero](img/preview.png)
 
 ## Requirements
 
