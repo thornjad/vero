@@ -79,7 +79,7 @@ vero_git_prompt () {
 
 function ssh_connection() {
   if [[ -n $SSH_CONNECTION ]]; then
-    echo " %{$fg_bold[red]%}(ssh)"
+    echo "%{$fg_bold[red]%} (ssh)"
   fi
 }
 
