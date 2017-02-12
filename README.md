@@ -16,6 +16,8 @@ Features:
 
 ![Preview of Vero](img/preview.png)
 
+A preview of Vero using Oh My ZSH and [Alacritty](https://github.com/jwilm/alacritty)
+
 ## Requirements
 
 - ZSH
