@@ -30,9 +30,9 @@ A preview of Vero using Oh My ZSH and [Alacritty](https://github.com/jwilm/alacr
 1. Download and install the theme:
 
   ```bash
-  wget https://github.com/Raindeer44/vero/archive/v1.0.3.tar.gz
-  tar -xzvf v1.0.3.tar.gz
-  cd vero-1.0.3
+  wget https://github.com/Raindeer44/vero/archive/v1.0.4.tar.gz
+  tar -xzvf v1.0.4.tar.gz
+  cd vero-1.0.4
   make
   ```
 
