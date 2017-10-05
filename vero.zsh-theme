@@ -1,4 +1,6 @@
-# oh-my-zsh vero Theme
+# Vero
+# Forked from Bureau
+# Bureau: https://github.com/robbyrussel/oh-my-zsh/blob/master/themes/bureau.zsh-theme
 
 ### NVM <nvm 4.2.6>
 
