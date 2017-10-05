@@ -1,4 +1,4 @@
-<p align=center>![Vero for zsh](img/title.png)</p>
+<p align=center>![Vero for zsh](./img/title.png)</p>
 
 A theme for [Oh My ZSH shell](https://github.com/robbyrussell/oh-my-zsh), created for simplicity, neatness and availability of information.
 
@@ -14,7 +14,7 @@ Features:
 
 ## Preview
 
-<p align=center>![Preview of Vero](img/preview.png)</p>
+<p align=center>![Preview of Vero](./img/preview.png)</p>
 
 A preview of Vero using Oh My ZSH and [Alacritty](https://github.com/jwilm/alacritty)
 
