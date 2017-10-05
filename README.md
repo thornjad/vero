@@ -30,9 +30,9 @@ A preview of Vero using Oh My ZSH and [Alacritty](https://github.com/jwilm/alacr
 1. Download and install the theme:
 
 ```bash
-wget https://github.com/Raindeer44/vero/archive/v1.0.4.tar.gz
-tar -xzvf v1.0.4.tar.gz
-cp vero-1.0.4/vero.zsh-theme ~/.oh-my-zsh/themes/custom/vero.zsh-theme
+wget https://github.com/Raindeer44/vero/archive/v1.1.0.tar.gz
+tar -xzvf v1.1.0.tar.gz
+cp vero-1.1.0/vero.zsh-theme ~/.oh-my-zsh/themes/custom/vero.zsh-theme
 ```
 
 If there are problems with missing directories in the `cp` command, make sure you have Oh My Zsh installed, then try `mkdir ~/.oh-my-zsh/themes/custom`.
