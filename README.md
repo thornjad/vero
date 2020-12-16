@@ -16,11 +16,6 @@ Features:
 
 <p align=center><img src="img/preview.png" alt="Preview of Vero" /></p>
 
-## Requirements
-
-- ZSH
-- A ZSH framework like [Oh My ZSH](https://github.com/robbyrussell/oh-my-zsh), [antigen](https://github.com/zsh-users/antigen), [zplug](https://github.com/zplug/zplug) or [zgen](https://github.com/tarjoilija/zgen)
-
 ## Installation
 
 ### Using ZPlug
@@ -31,12 +26,7 @@ line `zplug "robbyrussell/oh-my-zsh"`.
 
   ```bash
   setopt prompt_subst
-  zplug "raindeer44/vero", as:theme, use:vero.zsh-theme
-  ```
-### Using Antigen
-
-  ```bash
-  antigen bundle raindeer44/vero
+  zplug "thornjad/vero", from:gitlab, at:main, as:theme, use:vero.zsh-theme
   ```
 
 ### Using ZGen
@@ -44,23 +34,5 @@ line `zplug "robbyrussell/oh-my-zsh"`.
 If you're using [zgen](https://github.com/tarjoilija/zgen), add the following line to your **~/.zshrc** near your other ZSH plugins **after** the line `zgen oh-my-zsh`.
 
   ```bash
-  zgen load raindeer44/vero vero master
+  zgen load https://gitlab.com/thornjad/vero vero main
   ```
-
-### Using Oh My ZSH!
-
-1. Download and install the theme:
-
-  ```bash
-  wget https://github.com/Raindeer44/vero/archive/v1.0.4.tar.gz
-  tar -xzvf v1.0.4.tar.gz
-  cd vero-1.0.4
-  make
-  ```
-
-2. Set vero as your ZSH theme. In your **~/.zshrc**:
-
-  ```bash
-  ZSH_THEME="vero"
-  ```
-
