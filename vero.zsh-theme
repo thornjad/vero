@@ -83,6 +83,12 @@ function ssh_connection() {
   fi
 }
 
+function nvm_prompt_info() {
+  which nvm &>/dev/null || return
+  local nvm_prompt=${$(nvm current)#v}
+  echo "${ZSH_THEME_NVM_PROMPT_PREFIX}${nvm_prompt}${ZSH_THEME_NVM_PROMPT_SUFFIX}"
+}
+
 _PATH="%{$fg_bold[white]%}%~%{$reset_color%} "
 
 if [[ $EUID -eq 0 ]]; then
