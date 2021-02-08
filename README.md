@@ -1,6 +1,6 @@
 <p align=center><img src="img/title.png" alt="Vero for zsh" /></p>
 
-![GitHub](https://img.shields.io/github/license/thornjad/vero?style=flat-square) ![GitHub file size in bytes](https://img.shields.io/github/size/thornjad/vero/vero.zsh-theme?style=flat-square)
+![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/thornjad/vero?color=black&style=flat-square) ![GitHub](https://img.shields.io/github/license/thornjad/vero?style=flat-square) ![GitHub file size in bytes](https://img.shields.io/github/size/thornjad/vero/vero.zsh-theme?style=flat-square)
 
 A simple, informative theme for Zsh.
 
