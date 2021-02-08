@@ -15,7 +15,7 @@ Features:
 
 ## Preview
 
-<p align=center><img src="img/preview.png" alt="Preview of Vero" /></p>
+<p align=center><img src="img/preview.png" alt="Preview of Vero" style="border-radius: 3px;" /></p>
 
 ## Installation
 
