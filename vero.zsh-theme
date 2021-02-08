@@ -3,8 +3,8 @@
 ZSH_THEME_NVM_PROMPT_PREFIX="⟦nvm "
 ZSH_THEME_NVM_PROMPT_SUFFIX="⟧"
 
-ZSH_THEME_NVM_PROMPT_PREFIX="<nvm "
-ZSH_THEME_NVM_PROMPT_SUFFIX=">"
+ZSH_THEME_PYENV_PROMPT_PREFIX="⟦py "
+ZSH_THEME_PYENV_PROMPT_SUFFIX="⟧"
 
 ZSH_THEME_GIT_PROMPT_PREFIX="⟦%{$fg_bold[cyan]%}%{$reset_color%}%{$fg_bold[white]%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}⟧"
@@ -88,6 +88,12 @@ function nvm_prompt_info() {
   echo "${ZSH_THEME_NVM_PROMPT_PREFIX}${nvm_prompt}${ZSH_THEME_NVM_PROMPT_SUFFIX}"
 }
 
+function pyenv_prompt_info() {
+  which pyenv &>/dev/null || return
+  local pyenv_prompt="${$(pyenv version)% \(*\)}"
+  echo "${ZSH_THEME_PYENV_PROMPT_PREFIX}${pyenv_prompt}${ZSH_THEME_PYENV_PROMPT_SUFFIX}"
+}
+
 _PATH="%{$fg_bold[white]%}%~%{$reset_color%} "
 
 if [[ $EUID -eq 0 ]]; then
@@ -118,9 +124,9 @@ get_space () {
 
 vero_precmd () {
   _TIME="%*"
-  _NVMGIT="$(nvm_prompt_info) $(vero_git_prompt)"
+  _ENV_LINE="$(pyenv_prompt_info) $(nvm_prompt_info) $(vero_git_prompt)"
   _SSH="$(ssh_connection) "
-  _PROMPT="$_TIME$_SSH$_USERNAME:$_PATH$_NVMGIT"
+  _PROMPT="$_TIME$_SSH$_USERNAME:$_PATH$_ENV_LINE"
   print
   print -rP "$_PROMPT"
 }
