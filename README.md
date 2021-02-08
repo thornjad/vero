@@ -6,13 +6,12 @@ A simple, informative theme for Zsh.
 
 Features:
 
-- Current Node.js version
+- Current versions for `nvm` and `pyenv`
 - Git branch and status
 - Timestamp
 - SSH indication
 - Current user
 - Current working directory
-- A fancy lambda symbol
 
 ## Preview
 
