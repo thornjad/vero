@@ -19,17 +19,10 @@ Features:
 
 ## Installation
 
-### Using ZPlug
+### Using [ZPico](https://gitlab.com/thornjad/zpico)
 
 ```bash
-setopt prompt_subst
-zplug "thornjad/vero", from:gitlab, at:main, as:theme, use:vero.zsh-theme
-```
-
-### Using ZGen
-
-```bash
-zgen load https://gitlab.com/thornjad/vero vero main
+zpico add thornjad/vero source:gitlab
 ```
 
 ## Copying
