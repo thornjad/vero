@@ -20,6 +20,8 @@
 # out of or in connection with the software or the use or other dealings in the
 # software.
 
+autoload colors && colors
+
 ZSH_THEME_NVM_PROMPT_PREFIX="⟦nvm "
 ZSH_THEME_NVM_PROMPT_SUFFIX="⟧"
 
