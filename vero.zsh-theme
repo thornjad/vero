@@ -42,7 +42,6 @@ ZSH_THEME_GIT_PROMPT_UNSTAGED="%{$fg_bold[yellow]%}•%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$fg_bold[red]%}•%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_UNMERGED="%{$fg_bold[red]%}✕%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_DIVERGED="%{$fg[magenta]%}↕%{$reset_color%}"
-ZSH_THEME_GIT_PROMPT_STASHED="%{$fg_bold[blue]%}⚑%{$reset_color%}"
 
 vero_git_branch () {
   ref=$(command git symbolic-ref HEAD 2> /dev/null) || \
@@ -57,19 +56,19 @@ vero_git_status() {
   local _branch_status="${_lines[1]}"
 
   # check status of files
-  if (( ${#${(M)_lines:#[AMRD]? *}} )); then
+  if (( ${#${(@M)_lines:#[AMRD]? *}} )); then
     _STATUS="$_STATUS$ZSH_THEME_GIT_PROMPT_STAGED"
     _has_changes=1
   fi
-  if (( ${#${(M)_lines:#?[MTD] *}} )); then
+  if (( ${#${(@M)_lines:#?[MTD] *}} )); then
     _STATUS="$_STATUS$ZSH_THEME_GIT_PROMPT_UNSTAGED"
     _has_changes=1
   fi
-  if (( ${#${(M)_lines:#\?\? *}} )); then
+  if (( ${#${(@M)_lines:#\?\? *}} )); then
     _STATUS="$_STATUS$ZSH_THEME_GIT_PROMPT_UNTRACKED"
     _has_changes=1
   fi
-  if (( ${#${(M)_lines:#UU *}} )); then
+  if (( ${#${(@M)_lines:#UU *}} )); then
     _STATUS="$_STATUS$ZSH_THEME_GIT_PROMPT_UNMERGED"
     _has_changes=1
   fi
@@ -87,10 +86,6 @@ vero_git_status() {
   fi
   if [[ "$_branch_status" == *diverged* ]]; then
     _STATUS="$_STATUS$ZSH_THEME_GIT_PROMPT_DIVERGED"
-  fi
-
-  if command git rev-parse --verify refs/stash &> /dev/null; then
-    _STATUS="$_STATUS$ZSH_THEME_GIT_PROMPT_STASHED"
   fi
 
   echo "$_STATUS"

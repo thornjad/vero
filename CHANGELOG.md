@@ -3,7 +3,7 @@
 ## [1.4.0] - 2026-03-26
 
 ### Added
-- Git status indicators for unmerged, diverged, and stashed states
+- Git status indicators for unmerged and diverged states
 - Version-manager-agnostic node version display (`node_prompt_info`)
 - Version-manager-agnostic python version display (`python_prompt_info`)
 
