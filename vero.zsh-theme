@@ -27,6 +27,8 @@ ZSH_THEME_NODE_PROMPT_SUFFIX="⟧"
 ZSH_THEME_NVM_PROMPT_PREFIX="⟦nvm "
 ZSH_THEME_NVM_PROMPT_SUFFIX="⟧"
 
+ZSH_THEME_PYTHON_PROMPT_PREFIX="⟦py "
+ZSH_THEME_PYTHON_PROMPT_SUFFIX="⟧"
 ZSH_THEME_PYENV_PROMPT_PREFIX="⟦py "
 ZSH_THEME_PYENV_PROMPT_SUFFIX="⟧"
 
@@ -126,10 +128,23 @@ function nvm_prompt_info() {
   node_prompt_info
 }
 
+function python_prompt_info() {
+  local python_cmd
+  if command -v python &>/dev/null; then
+    python_cmd=python
+  elif command -v python3 &>/dev/null; then
+    python_cmd=python3
+  else
+    return
+  fi
+  local python_ver="${$($python_cmd --version 2>&1)#Python }"
+  local _prefix="${ZSH_THEME_PYTHON_PROMPT_PREFIX:-$ZSH_THEME_PYENV_PROMPT_PREFIX}"
+  local _suffix="${ZSH_THEME_PYTHON_PROMPT_SUFFIX:-$ZSH_THEME_PYENV_PROMPT_SUFFIX}"
+  echo "${_prefix}${python_ver}${_suffix}"
+}
+
 function pyenv_prompt_info() {
-  which pyenv &>/dev/null || return
-  local pyenv_prompt="${$(pyenv version)% \(*\)}"
-  echo "${ZSH_THEME_PYENV_PROMPT_PREFIX}${pyenv_prompt}${ZSH_THEME_PYENV_PROMPT_SUFFIX}"
+  python_prompt_info
 }
 
 _PATH="%{$fg_bold[white]%}%~%{$reset_color%} "
@@ -162,7 +177,7 @@ get_space () {
 
 vero_precmd () {
   _TIME="%*"
-  _ENV_LINE="$(pyenv_prompt_info) $(node_prompt_info) $(vero_git_prompt)"
+  _ENV_LINE="$(python_prompt_info) $(node_prompt_info) $(vero_git_prompt)"
   _SSH="$(ssh_connection) "
   _PROMPT="$_TIME$_SSH$_USERNAME:$_PATH$_ENV_LINE"
   print
