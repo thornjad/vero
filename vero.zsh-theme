@@ -89,7 +89,7 @@ vero_git_status() {
     _STATUS="$_STATUS$ZSH_THEME_GIT_PROMPT_STASHED"
   fi
 
-  echo $_STATUS
+  echo "$_STATUS"
 }
 
 vero_git_prompt () {
@@ -103,7 +103,7 @@ vero_git_prompt () {
     fi
     _result="$_result$ZSH_THEME_GIT_PROMPT_SUFFIX"
   fi
-  echo $_result
+  echo "$_result"
 }
 
 function ssh_connection() {
