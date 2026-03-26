@@ -157,22 +157,6 @@ fi
 _USERNAME="$_USERNAME%{$reset_color%}@%m"
 _LIBERTY="$_LIBERTY%{$reset_color%}"
 
-
-get_space () {
-  local STR=$1$2
-  local zero='%([BSUbfksu]|([FB]|){*})'
-  local LENGTH=${#${(S%%)STR//$~zero/}}
-  local SPACES=""
-  (( LENGTH = ${COLUMNS} - $LENGTH - 1))
-
-  for i in {0..$LENGTH}
-    do
-      SPACES="$SPACES "
-    done
-
-  echo $SPACES
-}
-
 vero_precmd () {
   _TIME="%*"
   _ENV_LINE="$(python_prompt_info) $(node_prompt_info) $(vero_git_prompt)"
