@@ -39,6 +39,7 @@ ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$fg_bold[red]%}•%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_UNMERGED="%{$fg_bold[red]%}✕%{$reset_color%}"
 
 vero_git_branch () {
+  local ref
   ref=$(command git symbolic-ref HEAD 2> /dev/null) || \
   ref=$(command git rev-parse --short HEAD 2> /dev/null) || return
   echo "${ref#refs/heads/}"
