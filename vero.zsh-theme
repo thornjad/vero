@@ -47,40 +47,45 @@ vero_git_branch () {
 }
 
 vero_git_status() {
-  _STATUS=""
-  _INDEX=$(command git status --porcelain -b 2> /dev/null)
+  local _STATUS="" _has_changes=0
+  local _INDEX=$(command git status --porcelain -b 2> /dev/null)
+  local -a _lines=("${(f)_INDEX}")
+  local _branch_status="${_lines[1]}"
 
   # check status of files
-  if $(echo "$_INDEX" | command grep -q '^[AMRD]. '); then
+  if (( ${#${(M)_lines:#[AMRD]? *}} )); then
     _STATUS="$_STATUS$ZSH_THEME_GIT_PROMPT_STAGED"
+    _has_changes=1
   fi
-  if $(echo "$_INDEX" | command grep -q '^.[MTD] '); then
+  if (( ${#${(M)_lines:#?[MTD] *}} )); then
     _STATUS="$_STATUS$ZSH_THEME_GIT_PROMPT_UNSTAGED"
+    _has_changes=1
   fi
-  if $(echo "$_INDEX" | command grep -q -E '^\?\? '); then
+  if (( ${#${(M)_lines:#\?\? *}} )); then
     _STATUS="$_STATUS$ZSH_THEME_GIT_PROMPT_UNTRACKED"
+    _has_changes=1
   fi
-  if $(echo "$_INDEX" | command grep -q '^UU '); then
+  if (( ${#${(M)_lines:#UU *}} )); then
     _STATUS="$_STATUS$ZSH_THEME_GIT_PROMPT_UNMERGED"
+    _has_changes=1
   fi
 
-  # clean if no file changes (ignore the branch tracking line)
-  if ! $(echo "$_INDEX" | command grep -q -v '^## '); then
+  if (( ! _has_changes )); then
     _STATUS="$_STATUS$ZSH_THEME_GIT_PROMPT_CLEAN"
   fi
 
-  # check status of local repository
-  if $(echo "$_INDEX" | command grep -q '^## .*ahead'); then
+  # check branch tracking status
+  if [[ "$_branch_status" == *ahead* ]]; then
     _STATUS="$_STATUS$ZSH_THEME_GIT_PROMPT_AHEAD"
   fi
-  if $(echo "$_INDEX" | command grep -q '^## .*behind'); then
+  if [[ "$_branch_status" == *behind* ]]; then
     _STATUS="$_STATUS$ZSH_THEME_GIT_PROMPT_BEHIND"
   fi
-  if $(echo "$_INDEX" | command grep -q '^## .*diverged'); then
+  if [[ "$_branch_status" == *diverged* ]]; then
     _STATUS="$_STATUS$ZSH_THEME_GIT_PROMPT_DIVERGED"
   fi
 
-  if $(command git rev-parse --verify refs/stash &> /dev/null); then
+  if command git rev-parse --verify refs/stash &> /dev/null; then
     _STATUS="$_STATUS$ZSH_THEME_GIT_PROMPT_STASHED"
   fi
 
