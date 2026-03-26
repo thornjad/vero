@@ -24,13 +24,9 @@ autoload colors && colors
 
 ZSH_THEME_NODE_PROMPT_PREFIX="⟦node "
 ZSH_THEME_NODE_PROMPT_SUFFIX="⟧"
-ZSH_THEME_NVM_PROMPT_PREFIX="⟦nvm "
-ZSH_THEME_NVM_PROMPT_SUFFIX="⟧"
 
 ZSH_THEME_PYTHON_PROMPT_PREFIX="⟦py "
 ZSH_THEME_PYTHON_PROMPT_SUFFIX="⟧"
-ZSH_THEME_PYENV_PROMPT_PREFIX="⟦py "
-ZSH_THEME_PYENV_PROMPT_SUFFIX="⟧"
 
 ZSH_THEME_GIT_PROMPT_PREFIX="⟦%{$fg_bold[cyan]%}%{$reset_color%}%{$fg_bold[white]%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}⟧"
@@ -112,8 +108,8 @@ fi
 function node_prompt_info() {
   command -v node &>/dev/null || return
   local node_ver=${$(node --version)#v}
-  local _prefix="${ZSH_THEME_NODE_PROMPT_PREFIX:-$ZSH_THEME_NVM_PROMPT_PREFIX}"
-  local _suffix="${ZSH_THEME_NODE_PROMPT_SUFFIX:-$ZSH_THEME_NVM_PROMPT_SUFFIX}"
+  local _prefix="${ZSH_THEME_NVM_PROMPT_PREFIX:-$ZSH_THEME_NODE_PROMPT_PREFIX}"
+  local _suffix="${ZSH_THEME_NVM_PROMPT_SUFFIX:-$ZSH_THEME_NODE_PROMPT_SUFFIX}"
   echo "${_prefix}${node_ver}${_suffix}"
 }
 
@@ -131,8 +127,8 @@ function python_prompt_info() {
     return
   fi
   local python_ver="${$($python_cmd --version 2>&1)#Python }"
-  local _prefix="${ZSH_THEME_PYTHON_PROMPT_PREFIX:-$ZSH_THEME_PYENV_PROMPT_PREFIX}"
-  local _suffix="${ZSH_THEME_PYTHON_PROMPT_SUFFIX:-$ZSH_THEME_PYENV_PROMPT_SUFFIX}"
+  local _prefix="${ZSH_THEME_PYENV_PROMPT_PREFIX:-$ZSH_THEME_PYTHON_PROMPT_PREFIX}"
+  local _suffix="${ZSH_THEME_PYENV_PROMPT_SUFFIX:-$ZSH_THEME_PYTHON_PROMPT_SUFFIX}"
   echo "${_prefix}${python_ver}${_suffix}"
 }
 
