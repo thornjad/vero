@@ -110,11 +110,9 @@ vero_git_prompt () {
   echo "$_result"
 }
 
-function ssh_connection() {
-  if [[ -n $SSH_CONNECTION ]]; then
-    echo "%{$fg_bold[red]%} (ssh)"
-  fi
-}
+if [[ -n $SSH_CONNECTION ]]; then
+  _VERO_SSH="%{$fg_bold[red]%} (ssh)"
+fi
 
 function node_prompt_info() {
   command -v node &>/dev/null || return
@@ -178,8 +176,7 @@ get_space () {
 vero_precmd () {
   _TIME="%*"
   _ENV_LINE="$(python_prompt_info) $(node_prompt_info) $(vero_git_prompt)"
-  _SSH="$(ssh_connection) "
-  _PROMPT="$_TIME$_SSH$_USERNAME:$_PATH$_ENV_LINE"
+  _PROMPT="$_TIME$_VERO_SSH $_USERNAME:$_PATH$_ENV_LINE"
   print
   print -rP "$_PROMPT"
 }
