@@ -6,7 +6,7 @@ A simple, informative theme for Zsh.
 
 Features:
 
-- Current versions for `nvm` and `pyenv`
+- Current Node.js and Python versions
 - Git branch and status
 - Timestamp
 - SSH indication
@@ -27,7 +27,7 @@ zpico add thornjad/vero source:gitlab
 
 ## Copying
 
-Copyright (c) 2017-2021 Jade Michael Thornton
+Copyright (c) 2017-2026 Jade Michael Thornton
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of
 this software and associated documentation files (the "Software"), to deal in
