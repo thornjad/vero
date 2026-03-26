@@ -1,6 +1,6 @@
 # Vero theme for Zsh
 #
-# Copyright (c) 2017-2021 Jade Michael Thornton
+# Copyright (c) 2017-2026 Jade Michael Thornton
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
