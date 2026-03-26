@@ -22,6 +22,8 @@
 
 autoload colors && colors
 
+ZSH_THEME_NODE_PROMPT_PREFIX="⟦node "
+ZSH_THEME_NODE_PROMPT_SUFFIX="⟧"
 ZSH_THEME_NVM_PROMPT_PREFIX="⟦nvm "
 ZSH_THEME_NVM_PROMPT_SUFFIX="⟧"
 
@@ -112,10 +114,16 @@ function ssh_connection() {
   fi
 }
 
+function node_prompt_info() {
+  command -v node &>/dev/null || return
+  local node_ver=${$(node --version)#v}
+  local _prefix="${ZSH_THEME_NODE_PROMPT_PREFIX:-$ZSH_THEME_NVM_PROMPT_PREFIX}"
+  local _suffix="${ZSH_THEME_NODE_PROMPT_SUFFIX:-$ZSH_THEME_NVM_PROMPT_SUFFIX}"
+  echo "${_prefix}${node_ver}${_suffix}"
+}
+
 function nvm_prompt_info() {
-  which nvm &>/dev/null || return
-  local nvm_prompt=${$(nvm current)#v}
-  echo "${ZSH_THEME_NVM_PROMPT_PREFIX}${nvm_prompt}${ZSH_THEME_NVM_PROMPT_SUFFIX}"
+  node_prompt_info
 }
 
 function pyenv_prompt_info() {
@@ -154,7 +162,7 @@ get_space () {
 
 vero_precmd () {
   _TIME="%*"
-  _ENV_LINE="$(pyenv_prompt_info) $(nvm_prompt_info) $(vero_git_prompt)"
+  _ENV_LINE="$(pyenv_prompt_info) $(node_prompt_info) $(vero_git_prompt)"
   _SSH="$(ssh_connection) "
   _PROMPT="$_TIME$_SSH$_USERNAME:$_PATH$_ENV_LINE"
   print
